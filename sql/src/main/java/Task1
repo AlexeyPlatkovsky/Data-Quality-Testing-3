@@ -1,0 +1,32 @@
+1.	Посчитать количество всех сотрудников, которые до сих пор работают в компании (флаг Active).
+
+select count(*)
+from Employees
+where active = 1
+
+2.	Посчитать количество всех сотрудников на каждой должности.
+
+select JobPosition,
+count(*)
+from Employees
+group by JobPosition
+
+3.	Вывести тех сотрудников (FirstName, LastName), у которых заработная плата больше либо равна 2000$.
+
+select FirstName, LastName
+from Employees
+where Salary > 2000
+or Salary = 2000
+
+4.	Вывести только те должности (JobPosition) сотрудников, где средняя заработная плата превышает 2000$.
+
+select JobPosition, AVG(Salary) as avg_salary
+from Employees
+group by JobPosition
+having avg_salary > 2000
+
+5.	Вывести FirstName, LastName только тех сотрудников,имя менеджера которых начинается на букву M.
+
+Select FirstName, LastName
+From Employees JOIN Managers on Employees.ManagerID = Managers.ManagerID
+Where Name LIKE "M%"
