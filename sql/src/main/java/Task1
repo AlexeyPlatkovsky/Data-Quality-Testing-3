@@ -30,3 +30,13 @@ having avg_salary > 2000
 Select FirstName, LastName
 From Employees JOIN Managers on Employees.ManagerID = Managers.ManagerID
 Where Name LIKE "M%"
+
+
+6.	Предположим, что это все записи, которые имеются в таблицах Employees и Managers.
+   Какой будет итоговый результат следующего запроса?
+
+   select e.FirstName, e.LastName, e.ManagerID, m.ManagerID from Employees e
+   right join Managers m
+   on e.ManagerID = m.ManagerID
+
+
